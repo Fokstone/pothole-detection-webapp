@@ -1,8 +1,8 @@
 [
     {
         "image_path": "pothole_coordinates\\pot0.jpg",
-        "latitude": 11.6064256,
-        "longitude": 75.825152,
+        "latitude": 28.382273184595217,
+        "longitude": 76.70384721180788,
         "severity": "Low",
         "datetime_utc": "2024-05-31 07:09:05.025649+00:00"
     },
