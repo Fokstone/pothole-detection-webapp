@@ -117,26 +117,6 @@
         "longitude": 75.825152,
         "severity": "Low",
         "datetime_utc": "2024-05-31 07:09:27.358962+00:00"
-    },
-    {
-        "image_path": "pothole_coordinates\\pot17.jpg",
-        "latitude": 18.6231703052475,
-        "longitude": 73.816015303745,
-        "severity": "Low",
-        "datetime_utc": "2024-05-31 07:09:28.763300+00:00"
-    },
-    {
-        "image_path": "pothole_coordinates\\pot18.jpg",
-        "latitude": 18.6231703052475,
-        "longitude": 73.816015303745,
-        "severity": "Low",
-        "datetime_utc": "2024-05-31 07:09:34.770028+00:00"
-    },
-    {
-        "image_path": "pothole_coordinates\\pot19.jpg",
-        "latitude": 18.6231703052475,
-        "longitude": 73.816015303745,
-        "severity": "Low",
-        "datetime_utc": "2024-05-31 07:09:46.054285+00:00"
     }
+   
 ]
