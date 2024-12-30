@@ -5,122 +5,143 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pothole Mapper: A Geospatial City Visualization</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" rel="stylesheet">
     <style>
-        body {
+        /* Global Styles */
+        * {
             margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            display: flex;
+            min-height: 100vh;
+            background-color: #E4E9F7;
+        }
+
+        /* Sidebar Styling */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 250px;
             height: 100vh;
-            overflow: hidden;
+            background: #FFF;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav .menu {
+            padding: 10px 20px;
+        }
+
+        nav .menu li {
+            list-style: none;
+            margin: 15px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        nav .menu li a {
+            text-decoration: none;
+            color: #707070;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        nav .menu li a:hover {
+            color: #3498db;
+        }
+
+        nav .menu li i {
+            font-size: 18px;
+        }
+
+        /* Home Section */
+        .home {
+            flex-grow: 1;
+            margin-left: 250px;
             display: flex;
             flex-direction: column;
-            font-family: 'Arial', sans-serif;
-            background-color: #f4f4f9;
-        }
-
-        #header {
-            background-color: #1abc9c;
-            color: #fff;
             padding: 20px;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
         }
 
-        #header h1 {
-            font-size: 28px;
-            font-weight: bold;
-            margin: 0;
-        }
-
-        #search-container {
+        .search-container {
             display: flex;
-            justify-content: center;
             align-items: center;
+            margin-bottom: 20px;
+            background-color: #3498db;
             padding: 15px;
-            background-color: #16a085;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
         }
 
-        #search-container label {
-            font-size: 16px;
+        .search-container label {
             color: #fff;
+            font-size: 18px;
             margin-right: 10px;
         }
 
         #citySearchInput {
-            width: 300px;
-            padding: 12px;
-            border: 2px solid #1abc9c;
-            border-radius: 8px;
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
             font-size: 16px;
-            outline: none;
-            transition: 0.3s;
-        }
-
-        #citySearchInput:focus {
-            border-color: #2ecc71;
-            box-shadow: 0 0 8px #2ecc71;
         }
 
         #search-button {
-            margin-left: 10px;
-            padding: 12px 20px;
-            background-color: #e74c3c;
+            background-color: #2ecc71;
             color: #fff;
             border: none;
-            border-radius: 8px;
+            padding: 10px 20px;
+            border-radius: 4px;
             font-size: 16px;
-            font-weight: bold;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            margin-left: 10px;
         }
 
         #search-button:hover {
-            background-color: #c0392b;
+            background-color: #27ae60;
         }
 
         #map {
             flex: 1;
-            margin: 10px;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        }
-
-        .popup-content {
-            text-align: center;
-        }
-
-        .popup-image {
-            max-width: 100%;
-            height: auto;
-            margin-bottom: 10px;
-        }
-
-        #analysisReport {
-            margin: 20px;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-            border-radius: 12px;
-            font-size: 16px;
-            color: #333;
+            height: calc(100vh - 100px); /* Adjust based on search bar height */
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
     </style>
 </head>
 <body>
-    <div id="header">
-        <h1>Pothole Mapper: A Geospatial City Visualization</h1>
-    </div>
+    <!-- Sidebar -->
+    <nav>
+        <ul class="menu">
+            <li><a href="#"><i class='bx bx-home-alt'></i> Dashboard</a></li>
+            <li><a href="#"><i class='bx bx-bar-chart-alt-2'></i> Analytics</a></li>
+            <li><a href="#"><i class='bx bx-bell'></i> Notifications</a></li>
+            <li><a href="#"><i class='bx bx-heart'></i> Favorites</a></li>
+            <li><a href="#"><i class='bx bx-wallet'></i> Wallet</a></li>
+        </ul>
+    </nav>
 
-    <div id="search-container"> 
-        <label for="citySearchInput">Search by City:</label>
-        <input type="text" id="citySearchInput" placeholder="Enter City">
-        <button id="search-button" onclick="searchCity()">Search</button>
-    </div>
+    <!-- Main Content -->
+    <section class="home">
+        <div class="search-container">
+            <label for="citySearchInput">Search by City:</label>
+            <input type="text" id="citySearchInput" placeholder="Enter City">
+            <button id="search-button" onclick="searchCity()">Search</button>
+        </div>
+        <div id="map"></div>
+    </section>
 
-    <div id="map"></div>
-
-    <div id="analysisReport"></div>
-
+    <!-- Scripts -->
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-    <script>
-        // Initialize the map
-        var map = 
+    <script src="citySearch.js"></script>
+    <script src="potholeData.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
