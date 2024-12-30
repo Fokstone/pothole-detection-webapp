@@ -1,132 +1,101 @@
-<!-- Coding by CodingLab | www.codinglabweb.com -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-    <!----======== CSS ======== -->
-    <link rel="stylesheet" href="css/dashboard.css">
-    
-    <!----===== Boxicons CSS ===== -->
-    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
-    
-    <title>Dashboard Sidebar Menu</title> 
+    <title>Pothole Mapper: A Geospatial City Visualization</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            font-family: 'Arial', sans-serif;
+            background-color: #ecf0f1;
+        }
+
+        #header {
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        #title {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        #search-container {
+            text-align: center;
+            padding: 8px;
+            background-color: #3498db;
+            color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin: 0; /* Resetting margin to remove extra white space */
+        }
+
+        #citySearchInput {
+            padding: 8px;
+            margin-right: 5px;
+            font-size: 14px;
+        }
+
+        #search-button {
+            padding: 6px;
+            background-color: #2ecc71;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        #search-button:hover {
+            background-color: #27ae60;
+        }
+
+        #map {
+            flex: 1;
+        }
+
+        .popup-content {
+            text-align: center;
+        }
+
+        .popup-image {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        #analysisReport {
+            margin: 20px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+    </style>
 </head>
 <body>
-    <nav class="sidebar close">
-        <header>
-            <div class="image-text">
-                <span class="image">
-                    <img src="logo.png" alt="">
-                </span>
+    <div id="header">
+        <h1>Pothole Mapper: A Geospatial City Visualization</h1>
+    </div>
 
-                <div class="text logo-text">
-                    <span class="name">Codinglab</span>
-                    <span class="profession">Web developer</span>
-                </div>
-            </div>
-
-            <i class='bx bx-chevron-right toggle'></i>
-        </header>
-
-        <div class="menu-bar">
-            <div class="menu">
-<div id="search-container"> 
-        
-       
-    
-                <li class="search-box">
-                     <input type="text" id="citySearchInput" placeholder="Enter City">
+    <div id="search-container"> 
+        <label for="citySearchInput">Search by City:</label>
+        <input type="text" id="citySearchInput" placeholder="Enter City">
         <button id="search-button" onclick="searchCity()">Search</button>
-                    <i class='bx bx-search icon'></i>
-                    <input type="text" id="citySearchInput" placeholder="Search...">
-                </li>
-</div>
-                <ul class="menu-links">
-                    <li class="nav-link">
-                        <a href="#">
-                            <i class='bx bx-home-alt icon' ></i>
-                            <span class="text nav-text">Dashboard</span>
-                        </a>
-                    </li>
+    </div>
 
-                    <li class="nav-link">
-                        <a href="#">
-                            <i class='bx bx-bar-chart-alt-2 icon' ></i>
-                            <span class="text nav-text">Revenue</span>
-                        </a>
-                    </li>
+    <div id="map"></div>
 
-                    <li class="nav-link">
-                        <a href="#">
-                            <i class='bx bx-bell icon'></i>
-                            <span class="text nav-text">Notifications</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-link">
-                        <a href="#">
-                            <i class='bx bx-pie-chart-alt icon' ></i>
-                            <span class="text nav-text">Analytics</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-link">
-                        <a href="#">
-                            <i class='bx bx-heart icon' ></i>
-                            <span class="text nav-text">Likes</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-link">
-                        <a href="#">
-                            <i class='bx bx-wallet icon' ></i>
-                            <span class="text nav-text">Wallets</span>
-                        </a>
-                    </li>
-
-                </ul>
-            </div>
-
-            <div class="bottom-content">
-                <li class="">
-                    <a href="#">
-                        <i class='bx bx-log-out icon' ></i>
-                        <span class="text nav-text">Logout</span>
-                    </a>
-                </li>
-
-                <li class="mode">
-                    <div class="sun-moon">
-                        <i class='bx bx-moon icon moon'></i>
-                        <i class='bx bx-sun icon sun'></i>
-                    </div>
-                    <span class="mode-text text">Dark mode</span>
-
-                    <div class="toggle-switch">
-                        <span class="switch"></span>
-                    </div>
-                </li>
-                
-            </div>
-        </div>
-
-    </nav>
-
-    <section class="home">
-         <div id="map"></div>
-         <div id="analysisReport"></div>
-    </section>
+    <div id="analysisReport"></div>
 
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script src="citySearch.js"></script>
     <script src="potholeData.js"></script>
-    <script src="js/script.js"></script>
-
 </body>
 </html>
-    
-
-
