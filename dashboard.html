@@ -17,9 +17,11 @@
             background-color: #ecf0f1;
             background: linear-gradient(to bottom, #175d69 23%, #330c43 95%);
         }
-
+        #head{
+            background: linear-gradient(to bottom, #175d69 23%, #330c43 95%);
+        }
          #header {
-       background: linear-gradient(to bottom, #175d69 23%, #330c43 95%);
+       
             color: #fff;
             padding: 10px;
             text-align: center;
@@ -32,7 +34,6 @@
         #search-container {
             text-align: center;
             padding: 8px;
-            background-color: #3498db;
             color: #fff;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             margin: 0; /* Resetting margin to remove extra white space */
@@ -81,6 +82,7 @@
     </style>
 </head>
 <body>
+    <div class="head">
     <div id="header">
         <h1>Pothole Mapper: A Geospatial City Visualization</h1>
     </div>
@@ -90,7 +92,7 @@
         <input type="text" id="citySearchInput" placeholder="Enter City">
         <button id="search-button" onclick="searchCity()">Search</button>
     </div>
-
+    </div>
     <div id="map"></div>
 
     <div id="analysisReport"></div>
