@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,50 +13,75 @@
             display: flex;
             flex-direction: column;
             font-family: 'Arial', sans-serif;
-            background-color: #ecf0f1;
+            background-color: #f4f4f9;
         }
 
         #header {
-            background-color: #3498db;
+            background-color: #1abc9c;
             color: #fff;
-            padding: 10px;
+            padding: 20px;
             text-align: center;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
         }
-        #title {
-            font-size: 24px;
-            margin-bottom: 10px;
+
+        #header h1 {
+            font-size: 28px;
+            font-weight: bold;
+            margin: 0;
         }
+
         #search-container {
-            text-align: center;
-            padding: 8px;
-            background-color: #3498db;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 15px;
+            background-color: #16a085;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        #search-container label {
+            font-size: 16px;
             color: #fff;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            margin: 0; /* Resetting margin to remove extra white space */
+            margin-right: 10px;
         }
 
         #citySearchInput {
-            padding: 8px;
-            margin-right: 5px;
-            font-size: 14px;
+            width: 300px;
+            padding: 12px;
+            border: 2px solid #1abc9c;
+            border-radius: 8px;
+            font-size: 16px;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        #citySearchInput:focus {
+            border-color: #2ecc71;
+            box-shadow: 0 0 8px #2ecc71;
         }
 
         #search-button {
-            padding: 6px;
-            background-color: #2ecc71;
+            margin-left: 10px;
+            padding: 12px 20px;
+            background-color: #e74c3c;
             color: #fff;
             border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
             cursor: pointer;
-            font-size: 14px;
+            transition: background-color 0.3s ease;
         }
 
         #search-button:hover {
-            background-color: #27ae60;
+            background-color: #c0392b;
         }
 
         #map {
             flex: 1;
+            margin: 10px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
 
         .popup-content {
@@ -74,8 +98,10 @@
             margin: 20px;
             padding: 20px;
             background-color: #fff;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            border-radius: 12px;
+            font-size: 16px;
+            color: #333;
         }
     </style>
 </head>
