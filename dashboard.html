@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pothole Mapper: A Geospatial City Visualization</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
      <link rel="stylesheet" href="css/dashboard.css" />
     <style>
         body {
@@ -87,7 +88,7 @@
         <label for="citySearchInput">Search by City:</label>
         
         <input type="text" id="citySearchInput" placeholder="Enter City">
-        <button id="search-button" onclick="searchCity()">Search</button>
+        <button id="search-button" onclick="searchCity()"><i class="fa-solid fa-magnifying-glass"></i></button>
     </div>
     </div>
     <div id="map"></div>
