@@ -53,6 +53,8 @@ except Exception as e:
 # Importing model weights and config file
 # Defining the model parameters
 net1 = cv.dnn.readNet(r'utils/yolov4_tiny.weights', r'utils/yolov4_tiny.cfg')
+# net1.setPreferableBackend(cv.dnn.DNN_BACKEND_CUDA)
+# net1.setPreferableTarget(cv.dnn.DNN_TARGET_CUDA_FP16)
 net1.setPreferableBackend(cv.dnn.DNN_BACKEND_DEFAULT)
 net1.setPreferableTarget(cv.dnn.DNN_TARGET_CPU)
 model1 = cv.dnn_DetectionModel(net1)
