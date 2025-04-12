@@ -1,11 +1,8 @@
-Here’s a more **attractive and professional** version of your README for the **RoadGuardian: Pothole Detection System**, with better formatting, visual clarity, and some polish for readability and appeal:
-
----
 
 # 🚧 RoadGuardian: Pothole Detection System using YOLOv4 Tiny  
 [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
 
-🔗 **Live Dashboard**: [Click here to view the Dashboard](https://akshxyjagtap.github.io/RoadGuardian-Pothole-Detection-System-with-Dashboard/)
+🔗 **Live Dashboard**: [Click here to view the Dashboard](https://farhan123mohd.github.io/pothole-detection-webapp/)
 
 ---
 
@@ -145,4 +142,4 @@ Feel free to use, modify, and contribute! 💙
 
 ---
 
-Would you like a badge section, project screenshot, or GIF demo added for extra visual appeal?
+
