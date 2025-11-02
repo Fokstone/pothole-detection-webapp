@@ -1,5 +1,11 @@
 [
     
+        "image_path": "pothole_coordinates\\pot9.jpg",
+        "latitude": 11.693142,
+        "longitude": 75.5486735,
+        "severity": "Medium",
+        "datetime_utc": "2025-11-02 12:23:02.561304+00:00"
+    },
     {
         "image_path": "pothole_coordinates\\pot0.jpg",
         "latitude": 11.702088,
